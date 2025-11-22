@@ -4,17 +4,17 @@ import ar.edu.unlam.pb2.enumeradores.AfinidadesElementales;
 
 public class CriaturaSalvaje extends Criatura{
 
-	public CriaturaSalvaje(String nombre, Integer energia, AfinidadesElementales elemento, Boolean inestable) {
-		super(nombre, energia, elemento, inestable);
+	public CriaturaSalvaje(String nombre, Integer energia, AfinidadesElementales elemento) {
+		super(nombre, energia, elemento, true);
 	}
 
 	@Override
-	public void entrenar() {
-		this.energia += 50;
+	public void entrenar() { // manejar exepcion o lanzar
+		int aumento = (int) (Math.random() * 41) + 60;
+		this.energia += aumento;
         if (energia > 200) {
             throw new EnergiaDesbordadaException("La criatura salvaje supero los 200 puntos de energia");
         }
-		
 	}
 
 	@Override

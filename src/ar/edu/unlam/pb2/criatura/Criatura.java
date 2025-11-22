@@ -7,15 +7,16 @@ public abstract class Criatura {
 	protected Integer energia;
 	protected AfinidadesElementales elemento;
 	protected Boolean inestable;
-	
+	private Integer limiteEnergiaTerrestre = 0;
+
 	public Criatura(String nombre,Integer energia,AfinidadesElementales elemento,Boolean inestable) {
 		this.nombre = nombre;
-		this.energia = otorgarNivelEnergia(energia);
+		this.energia = validarEnergiaDentroLosMargenesGenerales(energia);
 		this.elemento = elemento;
 		this.inestable = inestable;
 	}
 	
-	private Integer otorgarNivelEnergia(Integer energia) {
+	public Integer validarEnergiaDentroLosMargenesGenerales(Integer energia) {
 		if(energia > 200) {
 			return energia = 200;
 		}else if(energia < 0){
@@ -27,11 +28,19 @@ public abstract class Criatura {
 	public abstract void entrenar();
 	public abstract void pacificar();	
 	
+	public void setEnergia(Integer energia) {
+		if (energia < limiteEnergiaTerrestre) {
+			this.energia = 50;
+		}else {
+			this.energia = energia;
+		}
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
 
-	public Integer getNivelEnergia() {
+	public Integer getEnergia() {
 		return energia;
 	}
 
@@ -43,5 +52,16 @@ public abstract class Criatura {
 		return inestable;
 	}
 	
+	public void modificarInestableCriatura(Boolean inestable) {
+		this.inestable = inestable;
+	}
+	
+	public void setLimiteEnergiaTerrestre(Integer limiteEnergiaTerrestre) {
+		this.limiteEnergiaTerrestre = limiteEnergiaTerrestre;
+	}
+	
+	public void setElemento(AfinidadesElementales elemento) {
+		this.elemento = elemento;
+	}
 	
 }
