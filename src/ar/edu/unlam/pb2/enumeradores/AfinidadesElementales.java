@@ -1,4 +1,4 @@
-package ar.edu.unlam.pb2.criatura;
+package ar.edu.unlam.pb2.enumeradores;
 
 public enum AfinidadesElementales {
 	AGUA("Agua"),FUEGO("Fuego"),AIRE("Aire"),TIERRA("Tierra");
