@@ -11,7 +11,6 @@ public class TransformacionLlamaInterna extends TransformacionDecorador {
 	
 	@Override
     public void aplicarTransformacion(Criatura criatura) {
-        super.aplicarTransformacion(criatura);
         criatura.setTransformado(true);
         Integer energiaModificada;
         if(criatura.getElemento() == AfinidadesElementales.FUEGO) {

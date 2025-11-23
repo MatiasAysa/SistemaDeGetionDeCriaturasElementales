@@ -55,7 +55,6 @@ public class MaestroElemental {
                 t = new TransformacionAscensoViento(t);
                 break;
             default:
-                System.out.println("La criatura ya posee todas las transformaciones.");
                 return;
         }
 
@@ -70,13 +69,12 @@ public class MaestroElemental {
             if (this.maestria < 10) { 
                 throw new MaestriaInsuficienteException("Nivel de maestria insuficiente");
             }else {
-            	this.maestria -= 5;
                 c.entrenar();
             }
         }catch(MaestriaInsuficienteException e){
         	 System.out.println("Error: " + e.getMessage());
         }finally {
-        	System.out.println("Se completo el entrenamiento");
+        	System.out.println("Todo salio bien,el entrenamiento fue exitoso");
         }
     }
 
@@ -95,6 +93,10 @@ public class MaestroElemental {
 
 	public AfinidadesElementales getAfinidad() {
 		return afinidad;
+	}
+	
+	public Integer getMaestria() {
+		return maestria;
 	}
 	
 	

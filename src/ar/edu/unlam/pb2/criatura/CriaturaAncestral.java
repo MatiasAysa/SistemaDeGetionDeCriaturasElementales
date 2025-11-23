@@ -19,7 +19,6 @@ public class CriaturaAncestral extends Criatura{
 	}
 
 	@Override
-	public void pacificar() {		
-	}
+	public void pacificar() {}
 
 }
