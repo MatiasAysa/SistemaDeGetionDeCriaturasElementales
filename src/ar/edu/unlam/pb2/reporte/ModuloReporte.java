@@ -36,7 +36,6 @@ public class ModuloReporte {
         if (todas.isEmpty()) {
             return null;
         }
-
         Criatura mayor = todas.get(0);
 
         for (Criatura c : todas) {
@@ -44,12 +43,10 @@ public class ModuloReporte {
                 mayor = c;
             }
         }
-
         return mayor;
     }
     
     public MaestroElemental maestroConMasTransformadas() {
-
         if (maestros.isEmpty()) {
             return null;
         }
@@ -65,7 +62,6 @@ public class ModuloReporte {
                 maxTransformadas = cant;
             }
         }
-
         return mejor;
     }
 
@@ -77,30 +73,24 @@ public class ModuloReporte {
                 contador++;
             }
         }
-
         return contador;
     }
     
     public Map<AfinidadesElementales, Integer> cantidadPorAfinidad() {
-
         Map<AfinidadesElementales, Integer> mapa = new HashMap<>();
-
         List<Criatura> todas = listarCriaturasDeTodos();
 
         for (Criatura c : todas) {
 
         	AfinidadesElementales clave = c.getElemento();
 
-            // si no está, lo creo
             if (!mapa.containsKey(clave)) {
                 mapa.put(clave, 1);
             } else {
-                // si está, incremento
                 Integer actual = mapa.get(clave);
                 mapa.put(clave, actual + 1);
             }
         }
-
         return mapa;
     }
 
