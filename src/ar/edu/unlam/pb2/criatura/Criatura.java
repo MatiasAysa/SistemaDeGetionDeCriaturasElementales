@@ -77,4 +77,12 @@ public abstract class Criatura {
 		return this.transformado;
 	}
 	
+	public Boolean getTransformado() {
+		return transformado;
+	}
+
+	public void setTransformado(Boolean transformado) {
+		this.transformado = transformado;
+	}
+	
 }

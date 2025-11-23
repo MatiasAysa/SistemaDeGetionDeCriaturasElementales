@@ -5,7 +5,7 @@ import ar.edu.unlam.pb2.enumeradores.AfinidadesElementales;
 public class CriaturaAncestral extends Criatura{
 
 
-	public CriaturaAncestral(String nombre, Integer energia, AfinidadesElementales elemento, Boolean inestable) {
+	public CriaturaAncestral(String nombre, Integer energia, AfinidadesElementales elemento) {
 		super(nombre, energia, elemento, false);
 	}
 
@@ -19,9 +19,7 @@ public class CriaturaAncestral extends Criatura{
 	}
 
 	@Override
-	public void pacificar() {
-		// TODO Auto-generated method stub
-		
+	public void pacificar() {		
 	}
 
 }

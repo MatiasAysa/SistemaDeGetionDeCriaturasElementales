@@ -60,6 +60,14 @@ public class MaestroElemental {
 		return criaturas;
 	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public AfinidadesElementales getAfinidad() {
+		return afinidad;
+	}
+	
 	
 	
 	

@@ -11,7 +11,7 @@ public class TransformacioBendicionRio extends TransformacionDecorador {
 	@Override
     public void aplicarTransformacion(Criatura criatura) {
         super.aplicarTransformacion(criatura);
-        
+        criatura.setTransformado(true);
         Integer energiaModificada = criatura.getEnergia() * 2;
         if(energiaModificada > 180) {
         	energiaModificada = 180;

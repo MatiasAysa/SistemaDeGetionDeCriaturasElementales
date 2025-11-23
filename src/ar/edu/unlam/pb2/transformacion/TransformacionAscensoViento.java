@@ -14,6 +14,7 @@ public class TransformacionAscensoViento extends TransformacionDecorador {
     public void aplicarTransformacion(Criatura criatura) {
 		guardarAfinidad = criatura.getElemento();
         criatura.setElemento(AfinidadesElementales.AIRE);
+        criatura.setTransformado(true);
         
     }
 	

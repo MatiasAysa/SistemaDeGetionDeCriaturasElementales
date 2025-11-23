@@ -72,7 +72,7 @@ public class ModuloReporte {
     private int contarTransformadas(MaestroElemental m) {
         int contador = 0;
 
-        for (Criatura c : m.getCriaturas()) {
+        for (Criatura c : m.getCriaturas().values()) {
             if (c.estaTransformado()) {
                 contador++;
             }
@@ -85,7 +85,7 @@ public class ModuloReporte {
 
         Map<AfinidadesElementales, Integer> mapa = new HashMap<>();
 
-        List<Criatura> todas = listarTodasLasCriaturas();
+        List<Criatura> todas = listarCriaturasDeTodos();
 
         for (Criatura c : todas) {
 

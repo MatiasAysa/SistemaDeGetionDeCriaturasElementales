@@ -9,7 +9,7 @@ public class CriaturaSalvaje extends Criatura{
 	}
 
 	@Override
-	public void entrenar() { // manejar exepcion o lanzar
+	public void entrenar() {
 		int aumento = (int) (Math.random() * 41) + 60;
 		this.energia += aumento;
         if (energia > 200) {

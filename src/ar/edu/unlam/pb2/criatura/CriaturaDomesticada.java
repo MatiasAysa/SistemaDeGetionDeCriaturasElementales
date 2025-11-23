@@ -4,7 +4,7 @@ import ar.edu.unlam.pb2.enumeradores.AfinidadesElementales;
 
 public class CriaturaDomesticada extends Criatura {
 
-	public CriaturaDomesticada(String nombre, Integer energia, AfinidadesElementales elemento, Boolean inestable) {
+	public CriaturaDomesticada(String nombre, Integer energia, AfinidadesElementales elemento) {
 		super(nombre, energia, elemento, false);
 	}
 

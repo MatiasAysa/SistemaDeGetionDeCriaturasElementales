@@ -11,6 +11,7 @@ public class TransformacionVinculoTerrestre extends TransformacionDecorador {
 	@Override
     public void aplicarTransformacion(Criatura criatura) {
         criatura.setLimiteEnergiaTerrestre(50);
+        criatura.setTransformado(true);
     }
 
 }
