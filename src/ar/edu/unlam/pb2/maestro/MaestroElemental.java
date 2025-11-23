@@ -4,13 +4,15 @@ import java.util.HashMap;
 
 import ar.edu.unlam.pb2.criatura.Criatura;
 import ar.edu.unlam.pb2.enumeradores.AfinidadesElementales;
+import ar.edu.unlam.pb2.transformacion.*; 
 
 public class MaestroElemental {
 	private String nombre;
 	private Integer maestria;
 	private AfinidadesElementales afinidad;
 	private HashMap <String,Criatura> criaturas = new HashMap<>();
-
+	private HashMap <String,Integer> transformacionesAplicadas = new HashMap<>();
+	
 	public MaestroElemental(String nombre, Integer maestria, AfinidadesElementales afinidad) {
 		this.nombre = nombre;
 		this.maestria = otorgarMaestria(maestria);
@@ -30,6 +32,37 @@ public class MaestroElemental {
     public void agregarCriatura(Criatura c) {
         criaturas.put(c.getNombre(), c);
     }
+    
+    public void transformarCriatura(String nombreCriatura) {
+        Criatura criatura = criaturas.get(nombreCriatura);
+        if (criatura == null) return;
+
+        Integer nivel = transformacionesAplicadas.getOrDefault(nombreCriatura, 0);
+
+        Transformacion t = new TransformacionPartida();
+
+        switch (nivel) {
+            case 0:
+                t = new TransformacioBendicionRio(t);
+                break;
+            case 1:
+                t = new TransformacionLlamaInterna(t);
+                break;
+            case 2:
+                t = new TransformacionVinculoTerrestre(t);
+                break;
+            case 3:
+                t = new TransformacionAscensoViento(t);
+                break;
+            default:
+                System.out.println("La criatura ya posee todas las transformaciones.");
+                return;
+        }
+
+        t.aplicarTransformacion(criatura);
+        transformacionesAplicadas.put(nombreCriatura, nivel + 1);
+    }
+
 	
 	public void entrenarCriatura(String nombreCriatura){
         Criatura c = criaturas.get(nombreCriatura);
@@ -42,13 +75,9 @@ public class MaestroElemental {
             }
         }catch(MaestriaInsuficienteException e){
         	 System.out.println("Error: " + e.getMessage());
-        	 //Se puede hacer otra coso?
         }finally {
         	System.out.println("Se completo el entrenamiento");
         }
-
-        //if (c == null) return; posible para agregar
-
     }
 
     public void pacificar(String nombreCriatura) {
