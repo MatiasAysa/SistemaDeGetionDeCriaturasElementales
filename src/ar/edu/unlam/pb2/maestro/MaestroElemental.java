@@ -10,8 +10,7 @@ public class MaestroElemental {
 	private Integer maestria;
 	private AfinidadesElementales afinidad;
 	private HashMap <String,Criatura> criaturas = new HashMap<>();
-	
-	
+
 	public MaestroElemental(String nombre, Integer maestria, AfinidadesElementales afinidad) {
 		this.nombre = nombre;
 		this.maestria = otorgarMaestria(maestria);
@@ -57,6 +56,9 @@ public class MaestroElemental {
         c.pacificar();
     }
 	
+	public HashMap<String, Criatura> getCriaturas() {
+		return criaturas;
+	}
 	
 	
 	

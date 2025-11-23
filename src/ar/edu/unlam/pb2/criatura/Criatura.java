@@ -7,6 +7,7 @@ public abstract class Criatura {
 	protected Integer energia;
 	protected AfinidadesElementales elemento;
 	protected Boolean inestable;
+	protected Boolean transformado;
 	private Integer limiteEnergiaTerrestre = 0;
 
 	public Criatura(String nombre,Integer energia,AfinidadesElementales elemento,Boolean inestable) {
@@ -32,10 +33,18 @@ public abstract class Criatura {
 		if (energia < limiteEnergiaTerrestre) {
 			this.energia = 50;
 		}else {
-			this.energia = energia;
+			this.energia = validarEnergiaDentroLosMargenesGenerales(energia);
 		}
 	}
-
+	
+	public void ganarEnergia(Integer energia) {
+		this.energia = validarEnergiaDentroLosMargenesGenerales(this.energia + energia);
+	}
+	
+	public void perderEnergia(Integer energia) {
+		this.energia = validarEnergiaDentroLosMargenesGenerales(this.energia - energia);
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -62,6 +71,10 @@ public abstract class Criatura {
 	
 	public void setElemento(AfinidadesElementales elemento) {
 		this.elemento = elemento;
+	}
+	
+	public Boolean estaTransformado() {
+		return this.transformado;
 	}
 	
 }

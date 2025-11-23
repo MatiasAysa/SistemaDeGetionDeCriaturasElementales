@@ -1,4 +1,4 @@
-package ar.edu.unlam.pb2.trasformacion;
+package ar.edu.unlam.pb2.transformacion;
 
 import ar.edu.unlam.pb2.criatura.Criatura;
 import ar.edu.unlam.pb2.enumeradores.AfinidadesElementales;
